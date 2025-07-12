@@ -23,11 +23,6 @@ contract FarmerMarket {
 
     event ListingRegistered(address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
     event BuyerRegistered(address indexed buyer, string item, uint256 quantity, uint256 pricePerKg);
-=======
-    Listing[] private listings;
-
-    event ListingRegistered(address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
 
     /// @notice Allows a farmer to register a produce listing
     function registerListing(
@@ -37,19 +32,6 @@ contract FarmerMarket {
         uint256 pricePerKg
     ) external {
         listings.push(Listing({
-    struct BuyerRequest {
-        address buyer;
-        string name;
-        string item;
-        uint256 quantity;
-        uint256 pricePerKg;
-    }
-
-    Listing[] private listings;
-    BuyerRequest[] private buyers;
-
-    event ListingRegistered(address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
-    event BuyerRegistered(address indexed buyer, string item, uint256 quantity, uint256 pricePerKg);
             farmer: msg.sender,
             name: name,
             item: item,
@@ -60,7 +42,6 @@ contract FarmerMarket {
         emit ListingRegistered(msg.sender, item, quantity, pricePerKg);
     }
 
-<<<<<<< HEAD
     /// @notice Allows a buyer to register a buying request
     function registerBuyer(
         string memory name,
@@ -80,23 +61,16 @@ contract FarmerMarket {
     }
 
     /// @notice Returns all produce listings
-=======
-    /// @notice Returns all listings
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
     function getListings() external view returns (Listing[] memory) {
         return listings;
     }
 
-<<<<<<< HEAD
     /// @notice Returns all buyer requests
     function getBuyers() external view returns (BuyerRequest[] memory) {
         return buyers;
     }
 
     /// @notice Returns best matching listing for a buyer
-=======
-    /// @notice Returns the best matching listing based on item, quantity, and max price
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
     function getMatchingListing(
         string memory item,
         uint256 quantity,
@@ -111,7 +85,6 @@ contract FarmerMarket {
                 return listings[i];
             }
         }
-<<<<<<< HEAD
         return Listing(address(0), "", "", 0, 0);
     }
 
@@ -132,10 +105,4 @@ contract FarmerMarket {
         }
         return BuyerRequest(address(0), "", "", 0, 0);
     }
-=======
-
-        // Return an empty listing if no match
-        return Listing(address(0), "", "", 0, 0);
-    }
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
 }

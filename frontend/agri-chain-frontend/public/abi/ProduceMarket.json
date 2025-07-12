@@ -1,0 +1,261 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "produceId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      }
+    ],
+    "name": "OfferAccepted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "produceId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "offer",
+        "type": "uint256"
+      }
+    ],
+    "name": "OfferPlaced",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "produceId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "farmer",
+        "type": "address"
+      }
+    ],
+    "name": "ProduceListed",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "produceId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "offerIndex",
+        "type": "uint256"
+      }
+    ],
+    "name": "acceptOffer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "produceId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getOffers",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "buyer",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "offeredPricePerUnit",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "accepted",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct ProduceMarket.Offer[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "basePricePerUnit",
+        "type": "uint256"
+      }
+    ],
+    "name": "listProduce",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "offers",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "buyer",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "offeredPricePerUnit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "accepted",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "produceId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "offeredPricePerUnit",
+        "type": "uint256"
+      }
+    ],
+    "name": "placeOffer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "produceCounter",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "produces",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "basePricePerUnit",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address payable",
+        "name": "farmer",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isSold",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
