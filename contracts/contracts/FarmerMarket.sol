@@ -23,11 +23,7 @@ contract FarmerMarket {
 
     event ListingRegistered(address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
     event BuyerRegistered(address indexed buyer, string item, uint256 quantity, uint256 pricePerKg);
-=======
-    Listing[] private listings;
-
-    event ListingRegistered(address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
+    event MatchFound(address indexed buyer, address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
 
     /// @notice Allows a farmer to register a produce listing
     function registerListing(
@@ -36,20 +32,10 @@ contract FarmerMarket {
         uint256 quantity,
         uint256 pricePerKg
     ) external {
+        require(quantity > 0, "Quantity must be greater than zero");
+        require(pricePerKg > 0, "Price must be greater than zero");
+
         listings.push(Listing({
-    struct BuyerRequest {
-        address buyer;
-        string name;
-        string item;
-        uint256 quantity;
-        uint256 pricePerKg;
-    }
-
-    Listing[] private listings;
-    BuyerRequest[] private buyers;
-
-    event ListingRegistered(address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
-    event BuyerRegistered(address indexed buyer, string item, uint256 quantity, uint256 pricePerKg);
             farmer: msg.sender,
             name: name,
             item: item,
@@ -60,7 +46,6 @@ contract FarmerMarket {
         emit ListingRegistered(msg.sender, item, quantity, pricePerKg);
     }
 
-<<<<<<< HEAD
     /// @notice Allows a buyer to register a buying request
     function registerBuyer(
         string memory name,
@@ -68,6 +53,9 @@ contract FarmerMarket {
         uint256 quantity,
         uint256 pricePerKg
     ) external {
+        require(quantity > 0, "Quantity must be greater than zero");
+        require(pricePerKg > 0, "Price must be greater than zero");
+
         buyers.push(BuyerRequest({
             buyer: msg.sender,
             name: name,
@@ -80,23 +68,16 @@ contract FarmerMarket {
     }
 
     /// @notice Returns all produce listings
-=======
-    /// @notice Returns all listings
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
     function getListings() external view returns (Listing[] memory) {
         return listings;
     }
 
-<<<<<<< HEAD
     /// @notice Returns all buyer requests
     function getBuyers() external view returns (BuyerRequest[] memory) {
         return buyers;
     }
 
     /// @notice Returns best matching listing for a buyer
-=======
-    /// @notice Returns the best matching listing based on item, quantity, and max price
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
     function getMatchingListing(
         string memory item,
         uint256 quantity,
@@ -111,31 +92,44 @@ contract FarmerMarket {
                 return listings[i];
             }
         }
-<<<<<<< HEAD
         return Listing(address(0), "", "", 0, 0);
     }
 
-    /// @notice Returns best matching buyer for a farmer
+    /// @notice Returns best matching buyer for a farmer (FIXED VERSION)
     function getMatchingBuyer(
-        string memory item,
-        uint256 quantity,
+        string memory item, 
+        uint256 quantity, 
         uint256 minPrice
-    ) external view returns (BuyerRequest memory) {
+    ) external view returns (BuyerRequest memory, bool found) {
         for (uint256 i = 0; i < buyers.length; i++) {
             if (
-                keccak256(bytes(buyers[i].item)) == keccak256(bytes(item)) &&
+                keccak256(abi.encodePacked(buyers[i].item)) == keccak256(abi.encodePacked(item)) &&
                 buyers[i].quantity >= quantity &&
                 buyers[i].pricePerKg >= minPrice
             ) {
-                return buyers[i];
+                return (buyers[i], true);
             }
         }
-        return BuyerRequest(address(0), "", "", 0, 0);
+        return (BuyerRequest(address(0), "", "", 0, 0), false);
     }
-=======
 
-        // Return an empty listing if no match
-        return Listing(address(0), "", "", 0, 0);
+    /// @notice Execute a match between farmer and buyer
+    function executeMatch(
+        address buyer,
+        string memory item,
+        uint256 quantity,
+        uint256 pricePerKg
+    ) external {
+        emit MatchFound(buyer, msg.sender, item, quantity, pricePerKg);
     }
->>>>>>> aa2dd5a2ec0cbf3d260dd13f62bf74607964dbdb
+
+    /// @notice Get total number of listings
+    function getTotalListings() external view returns (uint256) {
+        return listings.length;
+    }
+
+    /// @notice Get total number of buyers
+    function getTotalBuyers() external view returns (uint256) {
+        return buyers.length;
+    }
 }

@@ -1,10 +1,12 @@
-const hre = require("hardhat");
+const { ethers } = require("hardhat");
 
 async function main() {
-  const ProduceMarket = await hre.ethers.getContractFactory("ProduceMarket");
-  const contract = await ProduceMarket.deploy();
-  await contract.waitForDeployment();
-  console.log(`ProduceMarket deployed to: ${contract.target}`);
+  const FarmerMarket = await ethers.getContractFactory("FarmerMarket");
+  const farmerMarket = await FarmerMarket.deploy();
+
+  await farmerMarket.waitForDeployment(); // Wait for deployment confirmation
+
+  console.log("✅ FarmerMarket deployed to:", await farmerMarket.getAddress());
 }
 
 main().catch((error) => {

@@ -18,10 +18,13 @@
   },
   "homepage": "https://github.com/Duraisingh-J/AgriChain#readme",
   "dependencies": {
+    "axios": "^1.10.0",
     "dotenv": "^17.2.0",
     "ethers": "^6.15.0",
+    "firebase-admin": "^13.4.0",
     "node-fetch": "^3.3.2",
-    "readline-sync": "^1.4.10"
+    "readline-sync": "^1.4.10",
+    "truffle": "^5.11.5"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^6.0.0",
