@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Duraisingh-J/AgriChain#readme",
   "dependencies": {
+    "@react-three/fiber": "^9.2.0",
     "dotenv": "^17.2.0",
     "ethers": "^6.15.0",
     "node-fetch": "^3.3.2",

@@ -1,6 +1,6 @@
 // src/components/three-d/FarmScene.jsx
 import React, { useRef, Suspense, useCallback } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Environment, Html, Text, useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
