@@ -1,0 +1,30 @@
+{
+  "name": "agrichain-1",
+  "version": "1.0.0",
+  "description": "AgriChain is a decentralized agricultural marketplace that connects farmers and buyers using smart contracts, AI-powered negotiation agents, and voice/SMS access for feature phone users. It ensures fair pricing, secure payments, and inclusive access for rural communities.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duraisingh-J/AgriChain.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Duraisingh-J/AgriChain/issues"
+  },
+  "homepage": "https://github.com/Duraisingh-J/AgriChain#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "ethers": "^6.15.0",
+    "node-fetch": "^3.3.2",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.0.0",
+    "hardhat": "^2.25.0"
+  }
+}
