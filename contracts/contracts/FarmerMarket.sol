@@ -23,7 +23,6 @@ contract FarmerMarket {
 
     event ListingRegistered(address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
     event BuyerRegistered(address indexed buyer, string item, uint256 quantity, uint256 pricePerKg);
-    event MatchFound(address indexed buyer, address indexed farmer, string item, uint256 quantity, uint256 pricePerKg);
 
     /// @notice Allows a farmer to register a produce listing
     function registerListing(
@@ -95,7 +94,7 @@ contract FarmerMarket {
         return Listing(address(0), "", "", 0, 0);
     }
 
-    /// @notice Returns best matching buyer for a farmer (FIXED VERSION)
+    /// @notice Returns best matching buyer for a farmer
     function getMatchingBuyer(
         string memory item, 
         uint256 quantity, 
@@ -111,25 +110,5 @@ contract FarmerMarket {
             }
         }
         return (BuyerRequest(address(0), "", "", 0, 0), false);
-    }
-
-    /// @notice Execute a match between farmer and buyer
-    function executeMatch(
-        address buyer,
-        string memory item,
-        uint256 quantity,
-        uint256 pricePerKg
-    ) external {
-        emit MatchFound(buyer, msg.sender, item, quantity, pricePerKg);
-    }
-
-    /// @notice Get total number of listings
-    function getTotalListings() external view returns (uint256) {
-        return listings.length;
-    }
-
-    /// @notice Get total number of buyers
-    function getTotalBuyers() external view returns (uint256) {
-        return buyers.length;
     }
 }

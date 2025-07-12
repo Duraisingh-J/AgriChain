@@ -1,0 +1,131 @@
+/* src/App.css */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a202c;
+  color: #e2e8f0;
+}
+
+.header {
+  width: 100%;
+  padding: 1rem 2rem; /* Increased horizontal padding for button fix */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2d3748;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  z-index: 10;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.header-title {
+  font-size: 2.5rem; /* Larger title */
+  font-weight: 900; /* Extra bold */
+  color: #6ee7b7; /* Bright green */
+  text-shadow: 0 0 8px rgba(110, 231, 183, 0.5); /* Subtle glow */
+}
+
+.main-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; /* General padding around the content */
+  box-sizing: border-box;
+}
+
+.scene-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* opacity is managed by the overlay-content now */
+}
+
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  padding: 3rem; /* More generous padding */
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.65); /* More opaque overlay */
+  width: 100%;
+  max-width: 1000px; /* Slightly wider content area */
+  box-sizing: border-box;
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); /* Deeper shadow for overlay */
+  backdrop-filter: blur(5px); /* Subtle background blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.welcome-title {
+  font-size: 4rem; /* Even larger title */
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  color: #fbd38d; /* Vibrant yellow */
+  text-shadow: 0 0 10px rgba(251, 211, 141, 0.7); /* Glowing effect */
+}
+
+.welcome-text {
+  font-size: 1.3rem; /* Larger text */
+  color: #cbd5e0;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.connected-wallet-text {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 1.1em;
+  color: #48bb78;
+  font-weight: bold;
+}
+
+.not-connected-text {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 1.1em;
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* REMOVE THESE STYLES AS 3D BUTTONS WILL REPLACE HTML BUTTONS */
+/* .dashboard-cards, .card, .card-title, .card-text, .card-button, .farmer-button, .buyer-button { display: none; } */
+/* For now, we will explicitly remove the dashboard cards from App.jsx's render method */
+
+.footer {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  color: #a0aec0;
+  background-color: #2d3748;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  z-index: 10;
+}
+/* src/App.css */
+/* ... (your existing styles for app-container, header, main-content, etc.) ... */
+
+.connect-button {
+  background-color: #4a90e2; /* Blue */
+  color: white;
+  padding: 0.75rem 1.25rem; /* Adjusted padding */
+  border: none;
+  border-radius: 8px; /* More rounded */
+  cursor: pointer;
+  font-size: 1.05em; /* Slightly larger */
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.connect-button:hover {
+  background-color: #357bd8;
+  transform: translateY(-2px);
+}
+
+/* ... (rest of your App.css styles) ... */
