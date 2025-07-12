@@ -1,0 +1,123 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "AgentAccess",
+  "sourceName": "contracts/contracts/AgentAccess.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        }
+      ],
+      "name": "AgentApproved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        }
+      ],
+      "name": "AgentRevoked",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        }
+      ],
+      "name": "approveAgent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "approvedAgents",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        }
+      ],
+      "name": "isAgentApproved",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        }
+      ],
+      "name": "revokeAgent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b506104c98061001f6000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c806343dcc4c7146100515780637da6ac0d1461006d578063ac1c9b1814610089578063e6bbc27e146100b9575b600080fd5b61006b600480360381019061006691906103f0565b6100e9565b005b610087600480360381019061008291906103f0565b6101da565b005b6100a3600480360381019061009e919061041d565b6102cb565b6040516100b09190610478565b60405180910390f35b6100d360048036038101906100ce919061041d565b6102fa565b6040516100e09190610478565b60405180910390f35b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f958963bb58868a71f4587b58ec2338f42e6e6a94ebf0bc97e62d1599294c77e260405160405180910390a350565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f3855bc4f5f7ba28049e0abd622b6ffbbf63cb46e6b09593b9213c9fd38db5cad60405160405180910390a350565b60006020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006103bd82610392565b9050919050565b6103cd816103b2565b81146103d857600080fd5b50565b6000813590506103ea816103c4565b92915050565b6000602082840312156104065761040561038d565b5b6000610414848285016103db565b91505092915050565b600080604083850312156104345761043361038d565b5b6000610442858286016103db565b9250506020610453858286016103db565b9150509250929050565b60008115159050919050565b6104728161045d565b82525050565b600060208201905061048d6000830184610469565b9291505056fea2646970667358221220cc4a5d3c4b01e54c5222a0ceb3298bb18b6c40f475a2c45923dcc5098419e65664736f6c634300081c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c806343dcc4c7146100515780637da6ac0d1461006d578063ac1c9b1814610089578063e6bbc27e146100b9575b600080fd5b61006b600480360381019061006691906103f0565b6100e9565b005b610087600480360381019061008291906103f0565b6101da565b005b6100a3600480360381019061009e919061041d565b6102cb565b6040516100b09190610478565b60405180910390f35b6100d360048036038101906100ce919061041d565b6102fa565b6040516100e09190610478565b60405180910390f35b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f958963bb58868a71f4587b58ec2338f42e6e6a94ebf0bc97e62d1599294c77e260405160405180910390a350565b60008060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055508073ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f3855bc4f5f7ba28049e0abd622b6ffbbf63cb46e6b09593b9213c9fd38db5cad60405160405180910390a350565b60006020528160005260406000206020528060005260406000206000915091509054906101000a900460ff1681565b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600080fd5b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b60006103bd82610392565b9050919050565b6103cd816103b2565b81146103d857600080fd5b50565b6000813590506103ea816103c4565b92915050565b6000602082840312156104065761040561038d565b5b6000610414848285016103db565b91505092915050565b600080604083850312156104345761043361038d565b5b6000610442858286016103db565b9250506020610453858286016103db565b9150509250929050565b60008115159050919050565b6104728161045d565b82525050565b600060208201905061048d6000830184610469565b9291505056fea2646970667358221220cc4a5d3c4b01e54c5222a0ceb3298bb18b6c40f475a2c45923dcc5098419e65664736f6c634300081c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
